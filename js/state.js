@@ -1,5 +1,3 @@
-// state.js — default board shape and small pure helpers.
-
 export function createId() {
   return `t-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
 }
