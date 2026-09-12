@@ -1,6 +1,4 @@
-/* ---------------------------------------------------------
-   Design tokens
---------------------------------------------------------- */
+
 :root {
   --paper: #EEF0E9;
   --panel: #FFFFFF;
@@ -60,9 +58,6 @@ button {
   outline-offset: 2px;
 }
 
-/* ---------------------------------------------------------
-   Top bar
---------------------------------------------------------- */
 .topbar {
   display: flex;
   align-items: center;
@@ -150,9 +145,6 @@ button {
   color: var(--flag-low);
 }
 
-/* ---------------------------------------------------------
-   Board & columns
---------------------------------------------------------- */
 .board {
   display: grid;
   grid-template-columns: repeat(3, minmax(260px, 1fr));
@@ -216,7 +208,6 @@ button {
   border-radius: var(--radius);
 }
 
-/* drop indicator line inserted between cards */
 .drop-indicator {
   height: 2px;
   margin: -5px 2px;
@@ -236,9 +227,6 @@ button {
 .drop-indicator::before { left: -2px; }
 .drop-indicator::after { right: -2px; }
 
-/* ---------------------------------------------------------
-   Cards
---------------------------------------------------------- */
 .card {
   background: var(--panel);
   border: 1px solid var(--line-strong);
@@ -326,7 +314,6 @@ button {
   color: var(--ink-soft);
 }
 
-/* add task */
 .add-card-btn {
   border: 1px dashed var(--line-strong);
   background: transparent;
