@@ -1,10 +1,3 @@
-// commands.js — Command Pattern state history.
-//
-// Every mutation to the board (create, move, rename, re-prioritize, delete)
-// is expressed as a Command object with execute()/undo(). The HistoryManager
-// keeps two stacks — past and future — so the app can undo and redo any
-// number of steps without special-casing each action type.
-
 export class AddTaskCommand {
   constructor(columnId, task, index = 0) {
     this.columnId = columnId;
