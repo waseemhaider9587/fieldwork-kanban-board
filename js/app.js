@@ -9,10 +9,6 @@ import {
   MoveTaskCommand,
 } from "./commands.js";
 
-// ---------------------------------------------------------------------
-// Bootstrap
-// ---------------------------------------------------------------------
-
 const boardEl = document.getElementById("board");
 const undoBtn = document.getElementById("undoBtn");
 const redoBtn = document.getElementById("redoBtn");
@@ -29,7 +25,6 @@ const history = new HistoryManager({
   },
 });
 
-// Grabbed-card keyboard session (see keyboard drag & drop section below).
 let keyboardSession = null;
 
 init();
@@ -60,10 +55,6 @@ async function init() {
     }
   });
 }
-
-// ---------------------------------------------------------------------
-// History helpers (run a command, re-render, persist, announce)
-// ---------------------------------------------------------------------
 
 function runCommand(command, announcement) {
   history.execute(command, state);
@@ -112,10 +103,6 @@ function announce(text) {
     liveRegion.textContent = text;
   });
 }
-
-// ---------------------------------------------------------------------
-// Rendering
-// ---------------------------------------------------------------------
 
 function render() {
   const focused = document.activeElement;
@@ -338,10 +325,6 @@ function buildNewCardForm(columnId, onClose) {
   return form;
 }
 
-// ---------------------------------------------------------------------
-// Native HTML5 Drag & Drop (no third-party DnD library)
-// ---------------------------------------------------------------------
-
 let dragState = null; // { taskId, fromColumnId, fromIndex }
 
 function attachCardDragHandlers(cardEl, task, columnId) {
@@ -429,11 +412,6 @@ function clearAllIndicators() {
   document.querySelectorAll(".drop-indicator").forEach((el) => el.remove());
   document.querySelectorAll(".card-list.drag-over").forEach((el) => el.classList.remove("drag-over"));
 }
-
-// ---------------------------------------------------------------------
-// Keyboard accessibility: arrow-key browsing + a "grab and move" mode
-// that mirrors the mouse drag, per the WAI-ARIA drag & drop pattern.
-// ---------------------------------------------------------------------
 
 function attachCardKeyboardHandlers(cardEl, task, columnId) {
   cardEl.addEventListener("keydown", (e) => {
