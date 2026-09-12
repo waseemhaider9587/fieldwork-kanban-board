@@ -1,7 +1,3 @@
-// db.js — thin promise-based wrapper around the native IndexedDB API.
-// No third-party dependency: this is the raw browser API, wrapped for
-// convenience so the rest of the app can `await` reads and writes.
-
 const DB_NAME = "fieldwork-kanban";
 const DB_VERSION = 1;
 const STORE_NAME = "boardState";
@@ -34,7 +30,6 @@ function openDatabase() {
   return dbPromise;
 }
 
-/** Persist the whole board state object under a single record. */
 export async function saveBoardState(state) {
   const db = await openDatabase();
   return new Promise((resolve, reject) => {
@@ -46,7 +41,6 @@ export async function saveBoardState(state) {
   });
 }
 
-/** Load the previously saved board state, or null if nothing was saved yet. */
 export async function loadBoardState() {
   const db = await openDatabase();
   return new Promise((resolve, reject) => {
@@ -58,7 +52,6 @@ export async function loadBoardState() {
   });
 }
 
-/** Wipe the saved board state (used by the "reset board" escape hatch). */
 export async function clearBoardState() {
   const db = await openDatabase();
   return new Promise((resolve, reject) => {
